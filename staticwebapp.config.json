@@ -1,0 +1,26 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/*.{js,css,ico,png,jpg,jpeg,gif,svg,webp,woff,woff2,ttf,eot,json,map}"
+    ]
+  },
+  "globalHeaders": {
+    "Cache-Control": "no-cache"
+  },
+  "routes": [
+    {
+      "route": "/*.{js,css,png,jpg,jpeg,gif,svg,webp,ico,woff,woff2,ttf,eot,json,map}",
+      "headers": {
+        "Cache-Control": "public, max-age=432000, immutable"
+      }
+    },
+    {
+      "route": "/index.html",
+      "headers": {
+        "Cache-Control": "no-cache, no-store, must-revalidate"
+      }
+    }
+  ]
+}
