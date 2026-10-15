@@ -12645,6 +12645,10 @@ body {
   --hub-shell-bottom-bar: 0px;
 }
 
+.page .container-fluid.h-100 {
+  display: flow-root;
+}
+
 @media print {
   html,
   body {
@@ -26232,6 +26236,7 @@ label:first-letter {
 	--hub-semantic-background-disabled: #e2e8f0;
 	--hub-semantic-background-backdrop: rgb(0 0 0 / 0.32);
 	--hub-semantic-shadow-card: 0 1px 3px rgb(15 23 42 / 0.05);
+	--hub-semantic-shadow-raised: 0 1px 2px rgb(15 23 42 / 0.08), 0 6px 16px rgb(15 23 42 / 0.12);
 	--hub-semantic-shadow-bar: 0 -4px 12px rgb(15 23 42 / 0.06);
 	--hub-semantic-shadow-overlay: 0 12px 28px rgb(15 23 42 / 0.16);
 	--hub-semantic-disabled-background: #e9ecef;
@@ -26244,7 +26249,7 @@ label:first-letter {
 }
 
 /* Tema scuro — scelta esplicita utente (prevale sul sistema) */
-[data-theme='dark'] {
+[data-theme="dark"] {
 	--hub-semantic-primary-soft: color-mix(in srgb, var(--hub-semantic-text-default) 10%, var(--hub-semantic-surface-0));
 	--hub-semantic-primary-text: #f1f5f9;
 	--hub-semantic-danger-text: #f87171;
@@ -26270,6 +26275,7 @@ label:first-letter {
 	--hub-semantic-background-input: #1e293b;
 	--hub-semantic-background-disabled: #1e293b;
 	--hub-semantic-shadow-card: 0 1px 3px rgb(0 0 0 / 0.4);
+	--hub-semantic-shadow-raised: 0 1px 2px rgb(0 0 0 / 0.45), 0 6px 16px rgb(0 0 0 / 0.5);
 	--hub-semantic-shadow-bar: 0 -4px 12px rgb(0 0 0 / 0.45);
 	--hub-semantic-shadow-overlay: 0 12px 28px rgb(0 0 0 / 0.5);
 	--hub-semantic-disabled-background: #1e293b;
@@ -26278,7 +26284,7 @@ label:first-letter {
 
 /* Tema scuro — preferenza di sistema, solo senza scelta esplicita */
 @media (prefers-color-scheme: dark) {
-	:root:not([data-theme='light']):not([data-theme='dark']) {
+	:root:not([data-theme="light"]):not([data-theme="dark"]) {
 		--hub-semantic-primary-soft: color-mix(in srgb, var(--hub-semantic-text-default) 10%, var(--hub-semantic-surface-0));
 		--hub-semantic-primary-text: #f1f5f9;
 		--hub-semantic-danger-text: #f87171;
@@ -26304,6 +26310,7 @@ label:first-letter {
 		--hub-semantic-background-input: #1e293b;
 		--hub-semantic-background-disabled: #1e293b;
 		--hub-semantic-shadow-card: 0 1px 3px rgb(0 0 0 / 0.4);
+		--hub-semantic-shadow-raised: 0 1px 2px rgb(0 0 0 / 0.45), 0 6px 16px rgb(0 0 0 / 0.5);
 		--hub-semantic-shadow-bar: 0 -4px 12px rgb(0 0 0 / 0.45);
 		--hub-semantic-shadow-overlay: 0 12px 28px rgb(0 0 0 / 0.5);
 		--hub-semantic-disabled-background: #1e293b;
