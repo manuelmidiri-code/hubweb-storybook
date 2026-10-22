@@ -26267,7 +26267,7 @@ label:first-letter {
 	--hub-semantic-warning-hover: #ffca2c;
 	--hub-semantic-warning-active: #ffcd39;
 	--hub-semantic-warning-contrast: #000000;
-	--hub-semantic-warning-graphic: #b38600;
+	--hub-semantic-warning-graphic: #ffc107;
 	--hub-semantic-warning-container: color-mix(in srgb, var(--hub-semantic-warning-default) 20%, var(--hub-semantic-background-card));
 	--hub-semantic-warning-onContainer: #1e293b;
 	--hub-semantic-info-default: #03a9f4;
@@ -26584,7 +26584,6 @@ label:first-letter {
   --hub-sev-container: var(--hub-semantic-primary-soft);
   --hub-sev-on-container: var(--hub-semantic-primary-text);
   --hub-sev-glyph: var(--hub-sev-text);
-  --hub-sev-glyph-stroke: 0 transparent;
   --_hub-sev-text-tint: 78%;
 }
 
@@ -26624,7 +26623,8 @@ label:first-letter {
   --hub-sev-container: var(--hub-semantic-warning-container);
   --hub-sev-on-container: var(--hub-semantic-warning-onContainer);
   --hub-sev-glyph: var(--hub-semantic-warning-default);
-  --hub-sev-glyph-stroke: 1px var(--hub-semantic-warning-graphic);
+  --hub-sev-state: var(--hub-semantic-warning-default);
+  --hub-sev-state-boost: 3.5;
 }
 
 .hub-sev--danger {
@@ -26639,7 +26639,7 @@ label:first-letter {
 }
 
 [data-theme=dark] .hub-sev--warn {
-  --hub-sev-glyph-stroke: 0 transparent;
+  --hub-sev-state-boost: 1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26647,7 +26647,7 @@ label:first-letter {
     --hub-sev-text: color-mix(in srgb, var(--hub-sev-color) 32%, white);
   }
   :root:not([data-theme=light]):not([data-theme=dark]) .hub-sev--warn {
-    --hub-sev-glyph-stroke: 0 transparent;
+    --hub-sev-state-boost: 1;
   }
 }
 .hub-row {
