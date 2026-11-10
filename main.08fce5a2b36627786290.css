@@ -27428,6 +27428,18 @@ label:first-letter {
     transform: translateX(calc(var(--hub-motion-direction, 1) * var(--hub-motion-distance-lg)));
   }
 }
+@keyframes hub-motion-shared-y-in {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--hub-motion-direction, 1) * var(--hub-motion-distance-lg)));
+  }
+}
+@keyframes hub-motion-shared-y-out {
+  to {
+    opacity: 0;
+    transform: translateY(calc(var(--hub-motion-direction, 1) * -1 * var(--hub-motion-distance-lg)));
+  }
+}
 @keyframes hub-motion-highlight {
   from {
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--hub-semantic-primary-default) 45%, transparent);
@@ -27470,6 +27482,73 @@ label:first-letter {
 .hub-theme-transition *::before,
 .hub-theme-transition *::after {
   transition: none !important;
+}
+
+.hub-page-transition [data-hub-shared],
+.hub-region-transition [data-hub-shared] {
+  view-transition-name: var(--hub-shared-name);
+  view-transition-class: hub-shared;
+}
+
+::view-transition-group(*.hub-shared) {
+  overflow: clip;
+  animation-duration: var(--hub-motion-reveal-duration);
+  animation-timing-function: var(--hub-motion-reveal-easing);
+}
+
+::view-transition-old(*.hub-shared) {
+  animation: hub-motion-fade-out var(--hub-motion-duration-sm) var(--hub-motion-easing-exit) both;
+}
+
+::view-transition-new(*.hub-shared) {
+  animation: hub-motion-fade-in var(--hub-motion-spring-effects-slow-duration) var(--hub-motion-spring-effects-slow-easing) var(--hub-motion-duration-sm) both;
+}
+
+.hub-page-transition [data-hub-shared][data-hub-shared-hold],
+.hub-region-transition [data-hub-shared][data-hub-shared-hold] {
+  view-transition-class: hub-shared-hold;
+}
+
+::view-transition-group(*.hub-shared-hold) {
+  overflow: clip;
+  animation-duration: var(--hub-motion-reveal-duration);
+  animation-timing-function: var(--hub-motion-reveal-easing);
+}
+
+::view-transition-old(*.hub-shared-hold) {
+  animation: none;
+}
+
+::view-transition-new(*.hub-shared-hold) {
+  animation: none;
+  opacity: 0;
+}
+
+::view-transition-group(*.hub-slide-up),
+::view-transition-group(*.hub-slide-down) {
+  overflow: clip;
+  animation-duration: var(--hub-motion-spring-productive-slow-duration);
+  animation-timing-function: var(--hub-motion-spring-productive-slow-easing);
+}
+
+::view-transition-old(*.hub-slide-up),
+::view-transition-new(*.hub-slide-up) {
+  --hub-motion-direction: 1;
+}
+
+::view-transition-old(*.hub-slide-down),
+::view-transition-new(*.hub-slide-down) {
+  --hub-motion-direction: -1;
+}
+
+::view-transition-old(*.hub-slide-up),
+::view-transition-old(*.hub-slide-down) {
+  animation: hub-motion-shared-y-out var(--hub-motion-duration-sm) var(--hub-motion-easing-exit) both;
+}
+
+::view-transition-new(*.hub-slide-up),
+::view-transition-new(*.hub-slide-down) {
+  animation: hub-motion-shared-y-in var(--hub-motion-spring-productive-slow-duration) var(--hub-motion-spring-productive-slow-easing) both;
 }
 .cdk-overlay-pane .mat-mdc-menu-panel,
 .cdk-overlay-pane .mat-select-panel-animations-enabled,
